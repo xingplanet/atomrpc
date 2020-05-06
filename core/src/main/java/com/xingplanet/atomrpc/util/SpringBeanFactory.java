@@ -5,6 +5,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
+import java.lang.annotation.Annotation;
+import java.util.Map;
+
 /**
  * @author wangjin
  */
@@ -20,8 +23,13 @@ public class SpringBeanFactory implements ApplicationContextAware {
         return context.getBean(name, clazz);
     }
 
+    public static Map<String, Object> getBeansWithAnnotation(Class<? extends Annotation> clazz) {
+        return context.getBeansWithAnnotation(clazz);
+    }
+
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        System.out.println("SpringBeanFactory");
         context = applicationContext;
     }
 }

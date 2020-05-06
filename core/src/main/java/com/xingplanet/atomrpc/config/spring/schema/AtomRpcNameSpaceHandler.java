@@ -8,7 +8,7 @@ import org.springframework.beans.factory.xml.NamespaceHandlerSupport;
 public class AtomRpcNameSpaceHandler extends NamespaceHandlerSupport {
 
 
-
+    @Override
     public void init() {
 
     }

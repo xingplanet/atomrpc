@@ -1,7 +1,5 @@
 package com.xingplanet.atomrpc.register.zookeeper;
 
-import com.xingplanet.atomrpc.util.SpringBeanFactory;
-
 import java.util.List;
 
 /**
@@ -13,13 +11,17 @@ public class ZookeeperRegisterJob implements Runnable {
 
     private ZookeeperRegister zookeeperRegister;
 
-    ZookeeperRegisterJob(List<String> serviceName) {
+    ZookeeperRegisterJob(List<String> serviceName, ZookeeperRegister zookeeperRegister) {
         this.serviceName = serviceName;
-        zookeeperRegister = SpringBeanFactory.getBean(ZookeeperRegister.class);
+        this.zookeeperRegister = zookeeperRegister;
     }
 
     @Override
     public void run() {
-        zookeeperRegister.register(serviceName);
+        if (zookeeperRegister != null) {
+            zookeeperRegister.register(serviceName);
+        } else {
+            System.out.println("zookeeperRegister or zkClient is null.");
+        }
     }
 }

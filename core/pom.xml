@@ -41,6 +41,10 @@
 					<groupId>org.junit.vintage</groupId>
 					<artifactId>junit-vintage-engine</artifactId>
 				</exclusion>
+				<exclusion>
+					<artifactId>junit-jupiter-api</artifactId>
+					<groupId>org.junit.jupiter</groupId>
+				</exclusion>
 			</exclusions>
 		</dependency>
 		<dependency>
@@ -52,7 +56,7 @@
 			<groupId>com.101tec</groupId>
 			<artifactId>zkclient</artifactId>
 			<version>0.11</version>
-		</dependency>
+        </dependency>
 
 	</dependencies>
 

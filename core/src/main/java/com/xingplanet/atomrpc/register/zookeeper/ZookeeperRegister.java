@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * TODO 失败重试
+ * 服务提供方，生成ZookeeperRegister的bean
  *
  * @author wangjin
  */
@@ -18,7 +19,8 @@ public class ZookeeperRegister extends AbstractRegister {
 
     public ZookeeperRegister(String zkAddr, int timeout, String serviceAddress) {
         super(serviceAddress);
-        this.zkClient = new ZkClient(zkAddr, timeout);
+//        this.zkClient = new ZkClient(zkAddr, timeout);
+        this.zkClient = null;
     }
 
 
@@ -30,7 +32,6 @@ public class ZookeeperRegister extends AbstractRegister {
             String path = ZK_ROOT + "/" + item + "/" + serviceAddress;
             createNode(path);
         });
-
 
     }
 

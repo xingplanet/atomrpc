@@ -9,7 +9,7 @@
 	</parent>
 	<artifactId>test</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>atomrpc-core</name>
+	<name>atomrpc-test</name>
 	<description>rpc framework</description>
 
 	<properties>

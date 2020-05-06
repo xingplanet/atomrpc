@@ -10,7 +10,7 @@ import org.w3c.dom.Element;
  */
 public class AtomRpcBeanDefinitionParser implements BeanDefinitionParser {
 
-
+    @Override
     public BeanDefinition parse(Element element, ParserContext parserContext) {
         return null;
     }
