@@ -15,10 +15,13 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Component
 public @interface RpcService {
-    @AliasFor(
-            annotation = Component.class
-    )
+    @AliasFor(annotation = Component.class)
     String value() default "";
+
+    /**
+     * 实现的接口
+     */
+    Class<?> interfaceName();
 
     String name() default "";
 

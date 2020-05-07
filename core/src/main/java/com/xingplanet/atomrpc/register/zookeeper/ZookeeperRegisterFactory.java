@@ -30,7 +30,7 @@ public class ZookeeperRegisterFactory implements ApplicationContextAware, Initia
         Map<String, Object> serviceMap = applicationContext.getBeansWithAnnotation(RpcService.class);
         List<String> serviceList = new ArrayList<>();
         for (Object service : serviceMap.values()) {
-            serviceList.add(service.getClass().getName());
+            serviceList.add(service.getClass().getAnnotation(RpcService.class).interfaceName().getName());
         }
         Thread thread = new Thread(new ZookeeperRegisterJob(serviceList, zookeeperRegister));
         thread.setName("register zookeeper");
