@@ -17,11 +17,11 @@ public interface SerializationService {
     byte[] encode(Object value) throws Exception;
 
     /**
-     * 将
+     * 将编码字符转回对象
      *
      * @param encodedBytes 编码值
      * @return 对象
      * @throws Exception 异常
      */
-    Object encode(byte[] encodedBytes) throws Exception;
+    Object decode(byte[] encodedBytes) throws Exception;
 }

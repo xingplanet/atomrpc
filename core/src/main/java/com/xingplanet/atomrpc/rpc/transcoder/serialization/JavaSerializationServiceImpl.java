@@ -10,7 +10,7 @@ import java.io.ObjectOutputStream;
  *
  * @author wangjin
  */
-public class JavaSerializationService implements SerializationService {
+public class JavaSerializationServiceImpl implements SerializationService {
 
     @Override
     public byte[] encode(Object value) throws Exception {
@@ -21,7 +21,7 @@ public class JavaSerializationService implements SerializationService {
     }
 
     @Override
-    public Object encode(byte[] encodedBytes) throws Exception {
+    public Object decode(byte[] encodedBytes) throws Exception {
         ByteArrayInputStream bis = new ByteArrayInputStream(encodedBytes);
         ObjectInputStream ois = new ObjectInputStream(bis);
         return ois.readObject();
