@@ -17,8 +17,8 @@ public class ZookeeperRegister extends AbstractRegister {
 
     private ZkClient zkClient;
 
-    public ZookeeperRegister(String zkAddr, int timeout, String serviceAddress) {
-        super(serviceAddress);
+    public ZookeeperRegister(String zkAddr, int timeout, int port) {
+        super(port);
 //        this.zkClient = new ZkClient(zkAddr, timeout);
         this.zkClient = null;
     }

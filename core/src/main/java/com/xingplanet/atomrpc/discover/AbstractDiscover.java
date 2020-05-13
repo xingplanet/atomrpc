@@ -12,7 +12,11 @@ public abstract class AbstractDiscover implements DiscoverService{
 
     protected String[] packageNameArray;
 
+    public AbstractDiscover(String[] packageNameArray) {
+        this.packageNameArray = packageNameArray;
+    }
 
+    @Override
     public String[] getPackageNameArray() {
         return packageNameArray;
     }

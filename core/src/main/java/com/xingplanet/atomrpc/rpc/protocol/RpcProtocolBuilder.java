@@ -105,7 +105,7 @@ public class RpcProtocolBuilder {
      * @return 响应包
      * @throws Exception 创建响应包异常
      */
-    public static RpcProtocol buildRequest(RpcProtocol request, byte operationCode, Object body, Transcoder transcoder) throws Exception {
+    public static RpcProtocol buildResponse(RpcProtocol request, byte operationCode, Object body, Transcoder transcoder) throws Exception {
 
         // 协议头没有使用扩展字段
         byte[] header = new byte[DEFAULT_HEADER_LENGTH];

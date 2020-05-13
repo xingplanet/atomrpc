@@ -8,6 +8,7 @@ import java.lang.annotation.Target;
 
 /**
  * RPC接口的注解，调用方引入rpc jar时，会自动生成代理类
+ * @author wangjin
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)

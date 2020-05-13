@@ -115,8 +115,16 @@ public class RpcProtocol {
      *
      * @return 请求整体长度
      */
-    public int getRequestLength() {
+    public int getProtocolLength() {
         return ByteUtil.readInt(this.header, 2);
+    }
+    /**
+     * 请求的请求头长度
+     *
+     * @return 请求整体长度
+     */
+    public short getHeaderLength() {
+        return ByteUtil.readShort(this.header, 2);
     }
 
     /**

@@ -17,9 +17,8 @@ public class ZookeeperDiscover extends AbstractDiscover {
     private ZkClient zkClient;
 
     public ZookeeperDiscover(String zkAddr, int timeout, String[] packageNameArray) {
-        this.packageNameArray = packageNameArray;
+        super(packageNameArray);
         this.zkClient = new ZkClient(zkAddr, timeout);
-
     }
 
     @Override

@@ -12,7 +12,7 @@ import com.xingplanet.atomrpc.rpc.transcoder.serialization.SerializationType;
  *
  * @author wangjin
  */
-public class SingleTranscoder implements Transcoder{
+public class SingleTranscoder implements Transcoder {
 
     /**
      * java自带的序列化工具
@@ -38,6 +38,13 @@ public class SingleTranscoder implements Transcoder{
         this.compressionThreshold = compressionThreshold;
         this.serializationService = new JavaSerializationServiceImpl();
         this.compressionService = new LZFCompressionServiceImpl();
+    }
+
+    /**
+     * 序列化构造器
+     */
+    public SingleTranscoder() {
+        this(10 * 1024 * 1024);
     }
 
     @Override

@@ -1,9 +1,9 @@
-package com.xingplanet.atomrpc.rpc;
+package com.xingplanet.atomrpc.rpc.message;
 
 /**
  * @author wangjin
  */
-public class RpcRequest {
+public class RpcRequestMessage {
 
     private String requestId;
 

@@ -16,4 +16,18 @@ public interface RegisterService {
      */
     void register(List<String> serviceNamList);
 
+    /**
+     * 获取服务器地址
+     *
+     * @return 获取服务器地址
+     */
+    String getServiceAddress();
+
+    /**
+     * 获取服务端口号
+     *
+     * @return 服务端口
+     */
+    int getPort();
+
 }

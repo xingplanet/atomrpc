@@ -1,4 +1,4 @@
-package com.xingplanet.atomrpc.rpc;
+package com.xingplanet.atomrpc.rpc.client;
 
 /**
  * @author wangjin

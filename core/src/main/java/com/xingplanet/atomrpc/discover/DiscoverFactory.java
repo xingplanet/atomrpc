@@ -1,12 +1,15 @@
-package com.xingplanet.atomrpc.discover.zookeeper;
+package com.xingplanet.atomrpc.discover;
 
 import com.xingplanet.atomrpc.config.annotation.RpcInterface;
+import com.xingplanet.atomrpc.discover.DiscoverService;
+import com.xingplanet.atomrpc.register.zookeeper.ZookeeperRegister;
 import com.xingplanet.atomrpc.rpc.proxy.jdk.JdkProxyFactory;
 import org.reflections.Reflections;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
@@ -18,15 +21,16 @@ import java.util.Set;
  * @author wangjin
  */
 @Component
-public class ZookeeperDiscoverFactory implements ApplicationContextAware, InitializingBean {
+@ConditionalOnBean(value = DiscoverService.class)
+public class DiscoverFactory implements ApplicationContextAware, InitializingBean {
 
     @Autowired
-    private ZookeeperDiscover zookeeperDiscover;
+    private DiscoverService discoverService;
 
     private ApplicationContext applicationContext;
     @Override
     public void afterPropertiesSet() throws Exception {
-        String[] packageNameArray = zookeeperDiscover.getPackageNameArray();
+        String[] packageNameArray = discoverService.getPackageNameArray();
         for (String packageName : packageNameArray) {
             Reflections reflections = new Reflections(packageName);
             DefaultListableBeanFactory beanFactory = (DefaultListableBeanFactory) applicationContext.getAutowireCapableBeanFactory();
@@ -37,7 +41,7 @@ public class ZookeeperDiscoverFactory implements ApplicationContextAware, Initia
                 }
             }
         }
-        System.out.println("ZookeeperDiscoverFactory afterPropertiesSet");
+        System.out.println("DiscoverFactory afterPropertiesSet");
 
     }
 

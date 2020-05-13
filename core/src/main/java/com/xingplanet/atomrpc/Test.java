@@ -13,6 +13,6 @@ public class Test {
     @Bean
     public ZookeeperRegister zookeeperRegister() {
         System.out.println("ZookeeperRegister");
-        return new ZookeeperRegister("", 5000, "");
+        return new ZookeeperRegister("", 5000, 23333);
     }
 }
