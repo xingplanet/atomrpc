@@ -1,6 +1,5 @@
 package com.xingplanet.atomrpc.register;
 
-import com.xingplanet.atomrpc.rpc.server.netty.RpcServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,7 +9,7 @@ import java.util.List;
  * @author wangjin
  */
 public class RegisterJob implements Runnable {
-    private static final Logger LOGGER = LoggerFactory.getLogger(RpcServer.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(RegisterJob.class);
 
     private final List<String> serviceName;
 

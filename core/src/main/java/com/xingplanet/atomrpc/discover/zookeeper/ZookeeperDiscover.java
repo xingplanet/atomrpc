@@ -24,13 +24,13 @@ public class ZookeeperDiscover extends AbstractDiscover {
     @Override
     public void subscribe(String serviceName) {
         String path =  ZK_ROOT + "/" + serviceName;
-        List<String> subcirbeNode = zkClient.subscribeChildChanges(path, new IZkChildListener() {
+        List<String> subscribeNode = zkClient.subscribeChildChanges(path, new IZkChildListener() {
 
             @Override
             public void handleChildChange(String parentPath, List<String> currentChilds) throws Exception {
                 DiscoverDictionary.put(serviceName, currentChilds);
             }
         });
-        DiscoverDictionary.put(serviceName, subcirbeNode);
+        DiscoverDictionary.put(serviceName, subscribeNode);
     }
 }

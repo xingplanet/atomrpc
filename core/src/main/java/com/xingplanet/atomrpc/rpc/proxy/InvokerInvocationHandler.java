@@ -1,6 +1,9 @@
 package com.xingplanet.atomrpc.rpc.proxy;
 
 import com.xingplanet.atomrpc.discover.DiscoverDictionary;
+import com.xingplanet.atomrpc.rpc.client.RpcClient;
+import com.xingplanet.atomrpc.rpc.client.RpcClientFactory;
+import com.xingplanet.atomrpc.rpc.client.netty.NettyRpcClient;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -23,11 +26,7 @@ public class InvokerInvocationHandler<T> implements InvocationHandler {
             return method.invoke(this, args);
         }
 
-        Set<String> candidates = DiscoverDictionary.get(clazz.getName());
-        // TODO 负载均衡
-        String ip = candidates.iterator().next();
-        String host = ip.split(":")[0];
-        String port = ip.split(":")[1];
-        return null;
+        RpcClient rpcClient = RpcClientFactory.getClient(clazz.getName());
+        return rpcClient.execute(method, args);
     }
 }

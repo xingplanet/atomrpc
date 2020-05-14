@@ -30,6 +30,7 @@ public class DiscoverFactory implements ApplicationContextAware, InitializingBea
     private ApplicationContext applicationContext;
     @Override
     public void afterPropertiesSet() throws Exception {
+
         String[] packageNameArray = discoverService.getPackageNameArray();
         for (String packageName : packageNameArray) {
             Reflections reflections = new Reflections(packageName);
@@ -37,6 +38,7 @@ public class DiscoverFactory implements ApplicationContextAware, InitializingBea
             Set<Class<?>> typesAnnotatedWith = reflections.getTypesAnnotatedWith(RpcInterface.class);
             if (!typesAnnotatedWith.isEmpty()) {
                 for (Class<?> clazz : typesAnnotatedWith) {
+                    discoverService.subscribe(clazz.getName());
                     beanFactory.registerSingleton(clazz.getSimpleName(), JdkProxyFactory.getProxy(clazz));
                 }
             }

@@ -7,7 +7,7 @@ public class RpcResponseMessage {
 
     private long requestId;
 
-    private Throwable throwable;
+    private Throwable throwable = null;
 
     private Object result;
 
