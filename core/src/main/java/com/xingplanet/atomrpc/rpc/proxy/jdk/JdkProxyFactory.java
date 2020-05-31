@@ -11,7 +11,7 @@ public class JdkProxyFactory {
 
     @SuppressWarnings("unchecked")
     public static <T> T getProxy(Class<T> clazz) {
-        return (T) Proxy.newProxyInstance(clazz.getClassLoader(), clazz.getInterfaces(),
+        return (T) Proxy.newProxyInstance(clazz.getClassLoader(), new Class[]{clazz},
                 new InvokerInvocationHandler(clazz));
     }
 }
